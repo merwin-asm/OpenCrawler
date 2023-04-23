@@ -3,7 +3,7 @@ Configures the Open Crawler v 0.0.1
 """
 
 
-from rich import print
+from rich import print 
 import getpass
 import json
 import os
