@@ -11,9 +11,8 @@ Features :
     - Pool Crawling - Use multiple crawlers at same time
     - Supports Robot.txt
     - MongoDB [DB]
-    - Restricted URI Logger - From Robot.txt
     - Language Detection
-    - 18 + Checks And Offensive Content Check
+    - 18 + Checks / Offensive Content Check
     - Proxies
     - Multi Threading
     - Url Scanning
@@ -36,7 +35,6 @@ from mongo_db import *
 from rich import print
 import urllib.robotparser
 import threading
-import robots_txt
 import requests
 import signal
 import atexit
