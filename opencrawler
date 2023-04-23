@@ -2,7 +2,7 @@
 
 
 """
-Open Crawler v 0.0.1 | CLI 
+Open Crawler v 1.0.0 | CLI 
 """
 
 
@@ -112,7 +112,7 @@ try:
   \$$$$$$ | $$$$$$$   \$$$$$$$ \$$   \$$        \$$$$$$  \$$       \$$$$$$$  \$$$$$\$$$$  \$$      
           | $$                                                                                     
           | $$                                                                                     
-           \$$                                                               [bold]v 0.0.1[/bold]  [/medium_spring_green]
+           \$$                                                               [bold]v 1.0.0[/bold]  [/medium_spring_green]
            
            """)
     
