@@ -5,7 +5,7 @@ Set of Tools to fix your DB | OpenCrawler v 0.0.1
 
 
 from mongo_db import connect_db, _DB
-from rich import print
+from rich import print 
 import json
 import os
 
@@ -24,7 +24,10 @@ def mongodb():
         config_file.close()
 
     except:
-        os.system("python3 config.py") # Re-configures
+        try:
+            os.system("python3 config.py") # Re-configures
+        except:
+            os.system("python config.py") # Re-configures
 
         config_file = open(config_file, "r")
         configs = json.loads(config_file.read())
