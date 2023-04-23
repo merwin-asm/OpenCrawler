@@ -1,12 +1,12 @@
 """
-Open Crawler 0.0.1
+Open Crawler v 1.0.0
 
 License - MIT ,
 An open source crawler/spider
 
 Features :
     - Cross Platform
-    - Easy install
+    - Installer for linux
     - Related-CLI Tools (includes ,CLI access to tool, not that good search-tool xD, etc)
     - Memory efficient [ig]
     - Pool Crawling - Use multiple crawlers at same time
@@ -302,7 +302,7 @@ def forced_crawl(website):
         proxies = get_proxy()
 
     try:
-        website_req = requests.get(website, headers = {"user-agent":"open crawler v 0.0.1"}, proxies =  proxies, timeout = TIMEOUT)
+        website_req = requests.get(website, headers = {"user-agent":"open crawler v 1.0.0"}, proxies =  proxies, timeout = TIMEOUT)
         
         # checks if content is html or skips
         try:
@@ -475,7 +475,7 @@ def forced_crawl(website):
                 continue
 
         try:
-            website_req = requests.get(e, headers = {"user-agent":"open crawler v 0.0.1"}, proxies =  proxies, timeout = TIMEOUT)
+            website_req = requests.get(e, headers = {"user-agent":"open crawler v 1.0.0"}, proxies =  proxies, timeout = TIMEOUT)
         
         except:
             sub_urls.remove(e)
@@ -559,7 +559,7 @@ def crawl(th):
                 proxies = get_proxy()
 
             try:
-                website_req = requests.get(website, headers = {"user-agent":"open crawler v 0.0.1"}, proxies =  proxies, timeout = TIMEOUT)
+                website_req = requests.get(website, headers = {"user-agent":"open crawler v 1.0.0"}, proxies =  proxies, timeout = TIMEOUT)
                 
                 try:
                     if not "html" in website_req.headers["Content-Type"]:
@@ -701,7 +701,7 @@ def crawl(th):
                         continue
                 
                 try:
-                    website_req = requests.get(e, headers = {"user-agent":"open crawler v 0.0.1"}, proxies =  proxies, timeout = TIMEOUT)
+                    website_req = requests.get(e, headers = {"user-agent":"open crawler v 1.0.0"}, proxies =  proxies, timeout = TIMEOUT)
                 
                 except:
                     sub_urls.remove(e)
@@ -746,7 +746,7 @@ ascii_art = """
   \$$$$$$ | $$$$$$$   \$$$$$$$ \$$   \$$        \$$$$$$  \$$       \$$$$$$$  \$$$$$\$$$$  \$$      
           | $$                                                                                     
           | $$                                                                                     
-           \$$                                                               [bold]v 0.0.1[/bold]  [/medium_spring_green]                            
+           \$$                                                               [bold]v 1.0.0[/bold]  [/medium_spring_green]                            
 """
 
 
