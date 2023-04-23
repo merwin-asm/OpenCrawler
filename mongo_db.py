@@ -1,5 +1,5 @@
 """
-Open Crawler v 0.0.1 | Mongo - DB 
+Open Crawler v 1.0.0 | Mongo - DB 
 """
 
 
