@@ -6,7 +6,7 @@ Part of Open Crawler v 0.0.1
 from rich import print
 import requests
 import random
-import sys
+import sys 
 import re
 
 
