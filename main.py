@@ -5,6 +5,7 @@ License - MIT ,
 An open source crawler/spider
 
 Features :
+    - Cross Platform
     - Easy install
     - Related-CLI Tools (includes ,CLI access to tool, not that good search-tool xD, etc)
     - Memory efficient [ig]
