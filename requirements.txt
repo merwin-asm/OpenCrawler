@@ -1,0 +1,6 @@
+pymongo
+rich
+requests
+memory_profiler
+beautifulsoup4
+langdetect
