@@ -1,5 +1,5 @@
 """
-Open Crawler v 0.0.1 | search.py
+Open Crawler v 1.0.0 | search.py
 
 -- Note the official search functions doesnt count the clicks or learn from search patterns etc :]
 """
