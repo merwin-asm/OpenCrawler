@@ -1,5 +1,5 @@
 """
-Part of Open Crawler v 0.0.1
+Part of Open Crawler v 1.0.0
 """
 
 
