@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+
+
 """
 Open Crawler v 0.0.1 | CLI 
 """
@@ -8,6 +11,7 @@ from rich.table import Table
 from rich import print
 from mongo_db import *
 import robots_txt
+import platform
 import requests
 import json
 import sys
@@ -28,7 +32,11 @@ def mongodb():
         config_file.close()
 
     except:
-        os.system("python3 config.py") # Re-configures
+        try:
+            os.system("python3 config.py") # Re-configures
+        except:
+            os.system("python config.py") # Re-configures
+
 
         config_file = open(config_file, "r")
         configs = json.loads(config_file.read())
@@ -110,7 +118,11 @@ try:
     
 
     elif main_arg == "fix_db":
-        os.system(f"python3 {cur_path}/fix_db.py")
+        try:
+            os.system(f"python3 {cur_path}/fix_db.py")
+        except:
+            os.system(f"python {cur_path}/fix_db.py")
+
 
     elif main_arg == "search": 
 
@@ -127,31 +139,25 @@ try:
         for e in test_arg:
             txt += " " + e
 
-        if txt.startswith("--pool"):
-            pool = True
-        
-        if not pool:
+        try:
+            os.system(f"python3 {cur_path}/search.py {txt}")
+        except:
             os.system(f"python {cur_path}/search.py {txt}")
-        
-        else:
-            try:
-                pool_url = sys.argv[3]
-            except:
-                print("[red]  [-] Pool URL not given[/red]")
-                quit()
             
-            txt = txt.replace("--pool", "")
-            txt = txt.replace(pool_url, "")
-
-            os.system(f"python {cur_path}/pool_search.py {pool_url} {txt}")
-
 
     elif main_arg == "configure":
-        os.system(f"python3 {cur_path}/config.py")
+        try:
+            os.system(f"python3 {cur_path}/config.py")
+        except:
+            os.system(f"python {cur_path}/config.py")
 
 
     elif main_arg == "crawl":
-        os.system(f"python3 {cur_path}/main.py")
+        try:
+            os.system(f"python3 {cur_path}/crawler.py")
+        except:
+            os.system(f"python {cur_path}/crawler.py")
+
 
     elif main_arg == "forced_crawl":
         try:
@@ -160,8 +166,11 @@ try:
             print("[red]  [-] Link Not Passed In [/red]") 
             quit()
 
-        os.system(f"python3 {cur_path}/main.py {web}")
-                
+        try:
+            os.system(f"python3 {cur_path}/crawler.py {web}")
+        except:
+            os.system(f"python {cur_path}/crawler.py {web}")
+
 
     elif main_arg == "crawled_status":
         mongodb()
@@ -191,9 +200,10 @@ try:
             num = sys.argv[3]
         except:
             pass
-
-        os.system(f"python3 {cur_path}/connection_tree.py {web} {num}")
-
+        try:
+            os.system(f"python3 {cur_path}/connection_tree.py {web} {num}")
+        except:
+            os.system(f"python {cur_path}/connection_tree.py {web} {num}")
 
     elif main_arg == "dissallowed":
         try:
@@ -268,19 +278,43 @@ try:
 
 
     elif main_arg == "update":
-        os.system("pip3 uninstall opencrawler")
-        cur_ver = requests.get("https://raw.githubusercontent.com/merwin-asm/OpenCrawler/main/current.ver").text
-        cur_ver = cur_ver.replace("\n", "")
-        os.system(f"pip3 install opencrawler=={cur_ver}")
+        if platform.system() != "windows":
 
+            try:
+                os.system("git clone https://github.com/merwin-asm/OpenCrawler.git")
+            except:
+                os.system("sudp rm -rf OpenCrawler")
+                os.system("git clone https://github.com/merwin-asm/OpenCrawler.git")
+
+            os.system("cd OpenCrawler")
+            os.system("chmod +x install.sh")
+            os.system("./install.sh")
+        else:
+            print("[yellow] This wont work on windows [/yellow]")
 
     elif main_arg == "install_requirements":
-        os.system(f"pip install -r {cur_path}/requirements.txt")
-    
+        try:
+            os.system(f"pip3 install -r {cur_path}/requirements.txt")
+        except:
+            os.system(f"pip install -r {cur_path}/requirements.txt")
+
 
     elif main_arg == "re_install":
-        os.system("pip3 uninstall opencrawler")
-        os.system("pip3 install opencrawler")
+        if platform.system() != "windows":
+
+            try:
+                os.system("git clone https://github.com/merwin-asm/OpenCrawler.git")
+            except:
+
+                os.system("sudp rm -rf OpenCrawler")
+                os.system("git clone https://github.com/merwin-asm/OpenCrawler.git")
+
+            os.system("cd OpenCrawler")
+            os.system("chmod +x install.sh")
+            os.system("./install.sh")
+            
+        else:
+            print("[yellow] This wont work on windows [/yellow]")
 
 
     else:
