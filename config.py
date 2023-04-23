@@ -1,5 +1,5 @@
 """
-Configures the Open Crawler v 0.0.1
+Configures the Open Crawler v 1.0.0
 """
 
 
