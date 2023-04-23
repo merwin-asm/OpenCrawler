@@ -1,5 +1,5 @@
 """
-Set of Tools to fix your DB | OpenCrawler v 0.0.1
+Set of Tools to fix your DB | OpenCrawler v 1.0.0
 """
 
 
