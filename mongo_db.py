@@ -203,7 +203,10 @@ if __name__ == "__main__":
         config_file.close()
 
     except:
-        os.system("python3 config.py") # Re-configures
+        try:
+            os.system("python3 config.py") # Re-configures
+        except:
+            os.system("python config.py") # Re-configures
 
         config_file = open(config_file, "r")
         configs = json.loads(config_file.read())
