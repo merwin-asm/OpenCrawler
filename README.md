@@ -8,7 +8,7 @@
 <h3 align="center">Open Crawler</h3>
 
 <p align="center">
-    Open Source Crawler 
+    Open Source Website Crawler 
 
 
 <br/>
