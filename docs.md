@@ -240,7 +240,7 @@ There are two collections used :
 - **waitlist** - Used for storing sites which is to be crawled
 - **crawledsites** - Used to store crawled sites and collected info about them
 
-### How is data stored in mongoDB :
+### How is data stored in mongoDB
 
 Structure in which data is stored in the collections...
 
