@@ -13,9 +13,11 @@
 * [Config File](#config-file)
 * [Working](#working)
   * [Files](#files)
-  * [Features](#features)
-* [NOTE](#note)
-* [Common Questions](#common-questions)
+  * [Connection Tree](#connection-tree)
+  * [Search](#search)
+  * [MongoDB Collections](#mongodb-collections)
+  * [How is data stored in mongoDB](#how-is-data-stored-in-mongoDB)
+* [Note](#note)
 
 
 
@@ -197,21 +199,24 @@ The file in json , "config.json"
 The config file stores info regarding the crawling activity
 These Include : 
 
-- MONGODB_PWD - pwd of mongoDB user
-- MONGODB_URI - uri for connecting to mongoDB
-- TIMEOUT - time out for get requests
-- MAX_THREADS - number of threads , set it as one if you don't wanna do multithreading
-- bad_words - the file containing list of bad words , which by default is bad_words.txt (bad_words.txt is provided)
-- USE_PROXIES - bool -  if the crawler should use proxy  (proxy wont be used even if set True for robot.txt scanning)
-- Scan_Bad_Words -  bool - if you want to save the bad / offensive text score
-- Scan_Top_Keywords - bool - if you want to save the top keywords found in the html txt
-- urlscan_key - the url scan API key , if you are not use the feature leave it empty
-- URL_SCAN - bool - if you want to scan url using UrlScan API
+- **MONGODB_PWD** - pwd of mongoDB user
+- **MONGODB_URI** - uri for connecting to mongoDB
+- **TIMEOUT** - time out for get requests
+- **MAX_THREADS** - number of threads , set it as one if you don't wanna do multithreading
+- **bad_words** - the file containing list of bad words , which by default is bad_words.txt (bad_words.txt is provided)
+- **USE_PROXIES** - bool -  if the crawler should use proxy  (proxy wont be used even if set True for robot.txt scanning)
+- **Scan_Bad_Words** -  bool - if you want to save the bad / offensive text score
+- **Scan_Top_Keywords** - bool - if you want to save the top keywords found in the html txt
+- **urlscan_key** - the url scan API key , if you are not use the feature leave it empty
+- **URL_SCAN** - bool - if you want to scan url using UrlScan API
 
 
-## Working
+## Working 
 
-### Files
+
+
+### Files :
+
 
 |Filename  |Type   |Use                                                                      |
 |----------|-------|-------------------------------------------------------------------------|
@@ -228,8 +233,93 @@ These Include :
 |config.py|python|Configures the OpenCrawler|
 |bad_words.txt|text|Contains bad words used for predicting the bad/offensive text score|
 
-### Features
+### MongoDB Collections :
 
-## NOTE
+There are two collections used :
 
-## Common Questions
+- **waitlist** - Used for storing sites which is to be crawled
+- **crawledsites** - Used to store crawled sites and collected info about them
+
+### How is data stored in mongoDB :
+
+Structure in which data is stored in the collections...
+
+##### crawledsites : 
+
+```
+######### Crawled Info are stored in Mongo DB as #####
+Crawled sites = [ 
+                {
+                    "website" : "<website>"
+                    
+                    "time" : "<last_crawled_in_epoch_time>",
+                    "mal" : Val/None, # malicious or not
+                    "offn" : Val/None, # 18 +/ Offensive language
+                    "ln" : "<language>",
+                    
+                    "keys" : [<meta-keywords>],
+                    "desc" : "<meta-desc>",
+                    
+                    "recc" : [<recurring words>]/None,
+                }
+]
+```
+
+
+##### waitlist :
+
+```
+waitlist = [
+           {
+               "website" : "<website>"
+           }
+]
+```
+
+
+### Connection Tree
+
+*By default depth is 2*
+
+The command tree works by getting all urls found in a site,
+then doing the same with the urls found,
+the number of times this happens deppends on the depth
+
+
+### Search
+
+The search command uses the data stored in the crawledsites.
+
+For each word of query it will check for sites containing them in,
+- website URL 
+- desc 
+- keywords 
+- top recurring words
+
+ The results are sorted with the ones with most number of words from the query
+
+```
+    url = list(_DB().Crawledsites.find({"$or" : [
+    {"recc": {"$regex": re.compile(word, re.IGNORECASE)}},
+    {"keys": {"$regex":  re.compile(word, re.IGNORECASE)}},
+    {"desc": {"$regex": re.compile(word, re.IGNORECASE)}},
+    {"website" : {"$regex": re.compile(word, re.IGNORECASE)}}
+]}))
+
+```
+
+
+## Note 
+
+-  Proxy doesn't work for robot.txt scans while you are crawling , this is because the urlib.robot_parser doesnt allow the use proxy 
+-  If you have any issues with pymongo not working try installing versions preffered for the specific python version
+-  You can use local mongoDB
+-  Search function aint making use of all possible filtures to find a site
+-  installer.py and install.sh aint same , install.sh also installs python and pip then runs installer.py
+-  installer.py and install.sh is only for linux use
+
+
+
+
+
+
