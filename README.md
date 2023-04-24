@@ -13,7 +13,7 @@
 
 <br/>
 <br/>
-<a href="https://github.com/merwin-asm/OpenCrawler"><strong>Explore the docs »</strong></a>
+<a href="https://github.com/merwin-asm/OpenCrawler/blob/main/docs.md"><strong>Explore the docs »</strong></a>
 <br/>
 <br/>
 <a href="https://github.com/merwin-asm/OpenCrawler/issues">Report Bug</a>
