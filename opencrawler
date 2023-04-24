@@ -63,7 +63,7 @@ cur_path = cur_path_
 
 
 
-table_commands = Table(title="Help - Open Crawler v 0.0.1")
+table_commands = Table(title="Help - Open Crawler v 1.0.0")
 
 table_commands.add_column("Command", style="cyan", no_wrap=True)
 table_commands.add_column("Use", style="magenta")
