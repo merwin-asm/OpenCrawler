@@ -28,6 +28,7 @@
 ## Table Of Contents
 
 * [About the Project](#about-the-project)
+* [Features](#features)
 * [Getting Started](#getting-started)
   * [Installation](#installation)
 * [Usage](#usage)
@@ -50,6 +51,21 @@ The project can be easily used with mongoDB.
 
 The project can also be used for pentesting.
 
+## Features
+
+- Cross Platform
+- Installer for linux
+- Related-CLI Tools (includes ,CLI access to tool, not that good search-tool xD, etc)
+- Memory efficient [ig]
+- Pool Crawling - Use multiple crawlers at same time
+- Supports Robot.txt
+- MongoDB [DB]
+- Language Detection
+- 18 + Checks / Offensive Content Check
+- Proxies
+- Multi Threading
+- Url Scanning
+- Keyword, Desc And recurring words Logging
 
 ## Getting Started
 
@@ -85,6 +101,7 @@ cd OpenCrawler
 ```shell
 pip install -r requirements.txt
 ```
+
 
 ## Usage
 
