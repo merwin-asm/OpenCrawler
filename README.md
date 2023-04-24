@@ -1,2 +1,147 @@
-# OpenCrawl
-Open Crawler || Open Source and Contributing to an open database of crawled data
+<br/>
+<p align="center">
+  <a href="https://github.com/merwin-asm/OpenCrawler">
+    <img src="https://media.discordapp.net/attachments/951417646191083551/1099925527403446302/image.png?width=413&height=413" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Open Crawler</h3>
+
+  <p align="center">
+    Open Source and Made for contributing to an open database of crawled data
+
+
+    <br/>
+    <br/>
+    <a href="https://github.com/merwin-asm/OpenCrawler"><strong>Explore the docs »</strong></a>
+    <br/>
+    <br/>
+    <a href="https://github.com/merwin-asm/OpenCrawler">View Demo</a>
+    .
+    <a href="https://github.com/merwin-asm/OpenCrawler/issues">Report Bug</a>
+    .
+    <a href="https://github.com/merwin-asm/OpenCrawler/issues">Request Feature</a>
+  </p>
+</p>
+
+![Contributors](https://img.shields.io/github/contributors/merwin-asm/OpenCrawler?color=dark-green) ![Forks](https://img.shields.io/github/forks/merwin-asm/OpenCrawler?style=social) ![Stargazers](https://img.shields.io/github/stars/merwin-asm/OpenCrawler?style=social) ![Issues](https://img.shields.io/github/issues/merwin-asm/OpenCrawler) ![License](https://img.shields.io/github/license/merwin-asm/OpenCrawler) 
+
+## Table Of Contents
+
+* [About the Project](#about-the-project)
+* [Getting Started](#getting-started)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
+
+## About The Project
+
+![Screen Shot](https://cdn.discordapp.com/attachments/951417646191083551/1099926374954827936/image.png)
+
+<br>
+
+*An Open Source Crawler/Spider*
+
+Can be used by anyone... And can be ran on any win / linux computers
+It ain't any crawler for industrial use as written in a slow programming language and may its own issues..
+
+The project can be easily used with mongoDB.
+
+The project can also be used for pentesting.
+
+
+## Getting Started
+
+The first thing is intall the project... 
+The installer provided is only for Linux..
+
+In windows the application wont be added to path or requirements be install soo check out the installation procedure for Windows.
+
+### Installation
+
+##### Linux
+
+```shell
+git clone https://github.com/merwin-asm/OpenCrawler.git
+```
+```shell
+cd OpenCrawler
+```
+```shell
+chmod +x install.sh && ./install.sh
+```
+
+##### Windows
+
+*You need git, python3 and pip installed*
+
+```shell
+git clone https://github.com/merwin-asm/OpenCrawler.git
+```
+```shell
+cd OpenCrawler
+```
+```shell
+pip install -r requirements.txt
+```
+
+## Usage
+
+The project can be used for :
+- Making a (not that good) search engine
+- For Osint
+- For Pentesting
+
+##### Linux
+
+To see available commands
+
+```sh
+opencrawler help
+```
+
+or
+
+```sh
+man opencrawler
+```
+
+##### Windows
+
+To see available commands
+
+```sh
+python opencrawler help
+```
+
+<img src="https://cdn.discordapp.com/attachments/951417646191083551/1099935329189888040/image.png?width=500&height=250">
+
+
+
+## Roadmap
+
+See the [open issues](https://github.com/merwin-asm/OpenCrawler/issues) for a list of proposed features (and known issues).
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/merwin-asm/OpenCrawler/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
+* Please make sure you check your spelling and grammar.
+* Create individual PR for each suggestion.
+* Please also read through the [Code Of Conduct](https://github.com/merwin-asm/OpenCrawler/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
+
+### Creating A Pull Request
+
+
+
+## License
+
+Distributed under the MIT License. See [LICENSE](https://github.com/merwin-asm/OpenCrawler/blob/main/LICENSE.md) for more information.
+
+## Authors
+
+* **Merwin A J** - *Comp Sci Student* - [Merwin A J](https://github.com/merwin-asm/) - *Build OpenCrawler*
+
