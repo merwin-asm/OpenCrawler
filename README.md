@@ -22,7 +22,7 @@
 </p>
 </p>
 
-![Contributors](https://img.shields.io/github/contributors/merwin-asm/OpenCrawler?color=dark-green) ![Forks](https://img.shields.io/github/forks/merwin-asm/OpenCrawler?style=social) ![Stargazers](https://img.shields.io/github/stars/merwin-asm/OpenCrawler?style=social) ![Issues](https://img.shields.io/github/issues/merwin-asm/OpenCrawler) ![License](https://img.shields.io/github/license/merwin-asm/OpenCrawler) 
+![Contributors](https://img.shields.io/github/contributors/merwin-asm/OpenCrawler?color=dark-green)   ![Issues](https://img.shields.io/github/issues/merwin-asm/OpenCrawler) ![License](https://img.shields.io/github/license/merwin-asm/OpenCrawler) 
 
 ## Table Of Contents
 
