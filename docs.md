@@ -7,8 +7,8 @@
   * [Installation](#installation)
   * [Uses](#uses)
 * [Commands](#commands)
-  * [Find Commands](#find Commands)
-  * [About Commands](#about Commands)
+  * [Find Commands](#find-Commands)
+  * [About Commands](#about-Commands)
 * [Working](#working)
 
 
