@@ -23,6 +23,7 @@
 </p>
 
 ![Contributors](https://img.shields.io/github/contributors/merwin-asm/OpenCrawler?color=dark-green)   ![Issues](https://img.shields.io/github/issues/merwin-asm/OpenCrawler) ![License](https://img.shields.io/github/license/merwin-asm/OpenCrawler) 
+<p align="right"> <img src="https://komarev.com/ghpvc/?username=merwin-asm-open-crawler&label=Project%20views&color=0e75b6&style=flat" /> </p>
 
 ## Table Of Contents
 
