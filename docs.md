@@ -233,7 +233,7 @@ These Include :
 |config.py|python|Configures the OpenCrawler|
 |bad_words.txt|text|Contains bad words used for predicting the bad/offensive text score|
 
-### MongoDB Collections :
+### MongoDB Collections 
 
 There are two collections used :
 
