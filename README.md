@@ -150,5 +150,9 @@ Distributed under the MIT License. See [LICENSE](https://github.com/merwin-asm/O
 
 ## Authors
 
-* **Merwin A J** - *Comp Sci Student* - [Merwin A J](https://github.com/merwin-asm/) - *Build OpenCrawler*
+* **Merwin A J** - *CS Student* - [Merwin A J](https://github.com/merwin-asm/) - *Build OpenCrawler*
+
+### Makes use of substances from : 
+
+- https://github.com/coffee-and-fun/google-profanity-words
 
