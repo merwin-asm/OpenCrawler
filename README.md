@@ -8,7 +8,7 @@
 <h3 align="center">Open Crawler</h3>
 
 <p align="center">
-    Open Source and Made for contributing to an open database of crawled data *or private*
+    Open Source Crawler 
 
 
 <br/>
