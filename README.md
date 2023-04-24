@@ -16,8 +16,7 @@
 <a href="https://github.com/merwin-asm/OpenCrawler"><strong>Explore the docs »</strong></a>
 <br/>
 <br/>
-<a href="https://github.com/merwin-asm/OpenCrawler">View Demo</a>
-.
+
 <a href="https://github.com/merwin-asm/OpenCrawler/issues">Report Bug</a>
 .
 <a href="https://github.com/merwin-asm/OpenCrawler/issues">Request Feature</a>
