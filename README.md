@@ -52,7 +52,7 @@ The project can also be used for pentesting.
 
 ## Getting Started
 
-The first thing is intall the project... 
+The first thing is install the project... 
 The installer provided is only for Linux..
 
 In windows the application wont be added to path or requirements be install soo check out the installation procedure for Windows.
