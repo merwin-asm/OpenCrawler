@@ -11,17 +11,17 @@
     Open Source and Made for contributing to an open database of crawled data
 
 
-    <br/>
-    <br/>
-    <a href="https://github.com/merwin-asm/OpenCrawler"><strong>Explore the docs »</strong></a>
-    <br/>
-    <br/>
-    <a href="https://github.com/merwin-asm/OpenCrawler">View Demo</a>
-    .
-    <a href="https://github.com/merwin-asm/OpenCrawler/issues">Report Bug</a>
-    .
-    <a href="https://github.com/merwin-asm/OpenCrawler/issues">Request Feature</a>
-  </p>
+<br/>
+<br/>
+<a href="https://github.com/merwin-asm/OpenCrawler"><strong>Explore the docs »</strong></a>
+<br/>
+<br/>
+<a href="https://github.com/merwin-asm/OpenCrawler">View Demo</a>
+.
+<a href="https://github.com/merwin-asm/OpenCrawler/issues">Report Bug</a>
+.
+<a href="https://github.com/merwin-asm/OpenCrawler/issues">Request Feature</a>
+</p>
 </p>
 
 ![Contributors](https://img.shields.io/github/contributors/merwin-asm/OpenCrawler?color=dark-green) ![Forks](https://img.shields.io/github/forks/merwin-asm/OpenCrawler?style=social) ![Stargazers](https://img.shields.io/github/stars/merwin-asm/OpenCrawler?style=social) ![Issues](https://img.shields.io/github/issues/merwin-asm/OpenCrawler) ![License](https://img.shields.io/github/license/merwin-asm/OpenCrawler) 
