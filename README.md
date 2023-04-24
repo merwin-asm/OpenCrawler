@@ -45,7 +45,7 @@
 *An Open Source Crawler/Spider*
 
 Can be used by anyone... And can be ran on any win / linux computers
-It ain't any crawler for industrial use as written in a slow programming language and may its own issues..
+It ain't any crawler for industrial use as written in a slow programming language and may have its own issues..
 
 The project can be easily used with mongoDB.
 
