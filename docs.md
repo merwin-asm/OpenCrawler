@@ -317,6 +317,8 @@ For each word of query it will check for sites containing them in,
 -  Search function aint making use of all possible filtures to find a site
 -  installer.py and install.sh aint same , install.sh also installs python and pip then runs installer.py
 -  installer.py and install.sh is only for linux use
+-  we use proxyscrape API for geting free proxies
+-  we use Virus Total's API for scanning websites , if required
 
 
 
