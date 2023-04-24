@@ -1,12 +1,13 @@
+
 <br/>
 <p align="center">
-  <a href="https://github.com/merwin-asm/OpenCrawler">
-    <img src="https://media.discordapp.net/attachments/951417646191083551/1099925527403446302/image.png?width=413&height=413" alt="Logo" width="80" height="80">
-  </a>
+<a href="https://github.com/merwin-asm/OpenCrawler">
+<img src="https://media.discordapp.net/attachments/951417646191083551/1099925527403446302/image.png?width=413&height=413" alt="Logo" width="80" height="80">
+</a>
 
-  <h3 align="center">Open Crawler</h3>
+<h3 align="center">Open Crawler</h3>
 
-  <p align="center">
+<p align="center">
     Open Source and Made for contributing to an open database of crawled data
 
 
