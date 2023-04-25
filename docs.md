@@ -311,7 +311,7 @@ For each word of query it will check for sites containing them in,
 
 ## Note 
 
--  Proxy doesn't work for robot.txt scans while you are crawling , this is because the urlib.robot_parser doesnt allow the use proxy 
+-  Proxy doesn't work for robot.txt scans while you are crawling , this is because the urlib.robotparser doesnt allow the use proxy 
 -  If you have any issues with pymongo not working try installing versions preffered for the specific python version
 -  If you get errors regarding pymongo also make sure you give read and write perms to the user
 -  You can use local mongoDB
