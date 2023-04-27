@@ -72,7 +72,7 @@ The project can also be used for pentesting.
 The first thing is install the project... 
 The installer provided is only for Linux..
 
-In windows the application wont be added to path or requirements be install soo check out the installation procedure for Windows.
+In windows the application wont be added to path or requirements be installed soo check out the installation procedure for Windows.
 
 ### Installation
 
