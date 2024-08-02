@@ -63,6 +63,7 @@ def scan(website, max_, it):
     try:
         website_txt = requests.get(website, headers = {"user-agent":"open crawler Mapper v 0.0.1"}, proxies = proxies).text
     except:
+        website_txt = ""
         print(f"[red]  [-]  '{website}' Website Couldn't Be Loaded")
 
     sub_urls = []
