@@ -539,7 +539,7 @@ def crawl(th):
             if y__:
                 update = True
 
-                if int(t__) < int(time.time()) - 604800 : # Re-Crawls Only After 7
+                if int(time.time()) - int(t__) < 604800 : # Re-Crawls Only After 7
                     print(f"[green]  [+] Already Crawled : {website} | Thread : {th}[/green]")
                     continue
                 
@@ -696,7 +696,7 @@ def crawl(th):
 
 
                 if y__:
-                    if int(t__) < int(time.time()) - 604800: # Re-Crawls Only After 7
+                    if int(time.time()) - int(t__) < 604800: # Re-Crawls Only After 7
                         sub_urls.remove(e)
                         continue
                 
