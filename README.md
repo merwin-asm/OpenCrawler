@@ -66,8 +66,9 @@ The project can also be used for pentesting.
 - Multi Threading
 - Url Scanning
 - Keyword, Desc And recurring words Logging
-- Search Website 
-- Connection Tree Website
+- Search Website - search_website.py
+- Connection Tree Website -  tree_website.py
+- Tool for finding proxies - proxy_tool.py
 
 ## Getting Started
 
