@@ -2,7 +2,7 @@
 <br/>
 <p align="center">
 <a href="https://github.com/merwin-asm/OpenCrawler">
-<img src="https://media.discordapp.net/attachments/951417646191083551/1099925527403446302/image.png?width=413&height=413" alt="Logo" width="80" height="80">
+<img src="https://cdn.discordapp.com/attachments/951417646191083551/1099925527403446302/image.png?ex=66b847f9&is=66b6f679&hm=8202e1159ac4032f2523d4d6b4dba6afe89ddd50c84f2bd9cfe11264ca0c4ac7&" alt="Logo" width="80" height="80">
 </a>
 
 <h3 align="center">Open Crawler</h3>
