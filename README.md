@@ -66,6 +66,8 @@ The project can also be used for pentesting.
 - Multi Threading
 - Url Scanning
 - Keyword, Desc And recurring words Logging
+- Search Website 
+- Connection Tree Website
 
 ## Getting Started
 
