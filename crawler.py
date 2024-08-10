@@ -1,12 +1,12 @@
 """
-Open Crawler v 1.0.0
+Open Crawler 0.0.1
 
 License - MIT ,
 An open source crawler/spider
 
 Features :
     - Cross Platform
-    - Installer for linux
+    - Easy install
     - Related-CLI Tools (includes ,CLI access to tool, not that good search-tool xD, etc)
     - Memory efficient [ig]
     - Pool Crawling - Use multiple crawlers at same time
@@ -131,8 +131,9 @@ EXIT_FLAG = False
 DB = None
 ROBOT_SCANS = [] # On Going robot scans
 WEBSITE_SCANS = [] # On Going website scans
-
-
+PROXY_CHECK = False
+HTTP = []
+HTTPS = []
 
 # Loads bad words / flaged words
 file = open(bad_words, "r")
@@ -203,14 +204,105 @@ def lang_d(txt):
     return score
 
 
+def proxy_checker(proxies, url="https://www.google.com"):
+    working_proxies = []
+    proxies = proxies.text.split("\r\n")
+    
+    if url.startswith("https"):
+        protocol = "https"
+    else:
+        protocol = "http"
+    
+    proxies.pop()
+    
+    for proxy in proxies:
+        try:
+            response = requests.get(url, proxies={protocol:proxy}, timeout=2)
+            if response.status_code == 200:
+                print(f"Proxy {proxy} works!  [{len(working_proxies)+1}]")
+                working_proxies.append(proxy)
+            else:
+                pass
+        except requests.RequestException as e:
+            pass
+    
+    return working_proxies
+
+
+def proxy_checker_(proxies, url="https://www.wired.com/review/klipsch-flexus-core-200/"):
+    working_proxies = []
+    proxies = proxies.split("\n")
+ 
+    if url.startswith("https"):
+        protocol = "https"
+    else:
+        protocol = "http"
+
+    proxies.pop()
+
+    for proxy in proxies:
+        try:
+            response = requests.get(url, proxies={protocol:proxy}, timeout=2)
+            if response.status_code == 200:
+                print(f"Proxy {proxy} works!  [{len(working_proxies)+1}]")
+                working_proxies.append(proxy)
+            else:
+                pass
+        except requests.RequestException as e:
+            pass
+
+    return working_proxies
+
+
+
 def get_proxy():
+
     """
     Gets a free proxy from 'proxyscrape'
     returns :  dict - > {"http": "<proxy ip:port>"}
     """
+    global PROXY_CHECK, HTTP, HTTPS
+    
+    if not PROXY_CHECK:
+        try:
+            f = open("found_proxies_http")
+            f2 = open("found_proxies_https")
+            res = f.read()
+            res2 = f2.read()
 
-    res = requests.get("https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all")
-    return {"http" : random.choice(res.text.split("\r\n"))}
+            HTTP = proxy_checker_(res, "http://www.wired.com/review/klipsch-flexus-core-200/")
+            HTTPS = proxy_checker_(res2)
+            
+            PROXY_CHECK = True
+
+            print(f"[green]Total Number Of HTTP PROXIES FOUND : {len(HTTP)} [/green]")
+            print(f"[green]Total Number Of HTTPS PROXIES FOUND : {len(HTTPS)} [/green]")
+
+            f2.close()
+            f.close()
+        except:
+            pass
+
+    if not PROXY_CHECK:
+        print("We are generating a new proxy list so it would take time... \[this happens when you are using old proxylist/have none]")
+        res = requests.get("https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all")
+        res2= requests.get("https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all")
+        HTTP = proxy_checker(res, "http://google.com")
+        HTTPS = proxy_checker(res2)
+        
+        PROXY_CHECK = True
+        
+        print(f"[green]Total Number Of HTTP PROXIES FOUND : {len(HTTP)} [/green]")        
+        print(f"[green]Total Number Of HTTPS PROXIES FOUND : {len(HTTPS)} [/green]")
+        
+        f = open("found_proxies_http", "w")
+        f2 = open("found_proxies_https", "w")
+        f.write("\n".join(HTTP))
+        f2.write("\n".join(HTTPS))
+        f.close()
+        f2.close()
+
+    return {"http" : random.choice(HTTP), "https": random.choice(HTTPS)}
 
 
 
@@ -302,7 +394,7 @@ def forced_crawl(website):
         proxies = get_proxy()
 
     try:
-        website_req = requests.get(website, headers = {"user-agent":"open crawler v 1.0.0"}, proxies =  proxies, timeout = TIMEOUT)
+        website_req = requests.get(website, headers = {"user-agent":"open crawler v 0.0.1"}, proxies =  proxies, timeout = TIMEOUT)
         
         # checks if content is html or skips
         try:
@@ -475,7 +567,7 @@ def forced_crawl(website):
                 continue
 
         try:
-            website_req = requests.get(e, headers = {"user-agent":"open crawler v 1.0.0"}, proxies =  proxies, timeout = TIMEOUT)
+            website_req = requests.get(e, headers = {"user-agent":"open crawler v 0.0.1"}, proxies =  proxies, timeout = TIMEOUT)
         
         except:
             sub_urls.remove(e)
@@ -539,7 +631,7 @@ def crawl(th):
             if y__:
                 update = True
 
-                if int(time.time()) - int(t__) < 604800 : # Re-Crawls Only After 7
+                if int(time.time()) - int(t__) < 604800: # Re-Crawls Only After 7
                     print(f"[green]  [+] Already Crawled : {website} | Thread : {th}[/green]")
                     continue
                 
@@ -559,7 +651,7 @@ def crawl(th):
                 proxies = get_proxy()
 
             try:
-                website_req = requests.get(website, headers = {"user-agent":"open crawler v 1.0.0"}, proxies =  proxies, timeout = TIMEOUT)
+                website_req = requests.get(website, headers = {"user-agent":"open crawler v 0.0.1"}, proxies =  proxies, timeout = TIMEOUT)
                 
                 try:
                     if not "html" in website_req.headers["Content-Type"]:
@@ -701,7 +793,7 @@ def crawl(th):
                         continue
                 
                 try:
-                    website_req = requests.get(e, headers = {"user-agent":"open crawler v 1.0.0"}, proxies =  proxies, timeout = TIMEOUT)
+                    website_req = requests.get(e, headers = {"user-agent":"open crawler v 0.0.1"}, proxies =  proxies, timeout = TIMEOUT)
                 
                 except:
                     sub_urls.remove(e)
@@ -746,7 +838,7 @@ ascii_art = """
   \$$$$$$ | $$$$$$$   \$$$$$$$ \$$   \$$        \$$$$$$  \$$       \$$$$$$$  \$$$$$\$$$$  \$$      
           | $$                                                                                     
           | $$                                                                                     
-           \$$                                                               [bold]v 1.0.0[/bold]  [/medium_spring_green]                            
+           \$$                                                               [bold]v 0.0.1[/bold]  [/medium_spring_green]                            
 """
 
 
@@ -767,6 +859,9 @@ def main():
         primary_url = input(" ")
 
     print("")
+    
+    print("[blue]  [+] Loading And Testing Proxies... .. ... .. .. .. [/blue]")
+    get_proxy()
 
     if primary_url != "":
         forced_crawl(primary_url)
