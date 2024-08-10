@@ -38,7 +38,7 @@
 
 ## About The Project
 
-![Screen Shot](https://cdn.discordapp.com/attachments/951417646191083551/1099926374954827936/image.png)
+![Screen Shot](https://cdn.discordapp.com/attachments/951417646191083551/1099926374954827936/image.png?ex=66b848c3&is=66b6f743&hm=15144fd543ce67f1bd03c1a741822d0651b61ccadc8e993675619bbb015765f4&)
 
 <br>
 
