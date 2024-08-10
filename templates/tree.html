@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Tree Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #image-container {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Connection Tree WEB</h1>
+    <form id="fetch-form">
+        <label for="root">Root URL:</label>
+        <input type="text" id="root" name="root" required><br><br>
+        <label for="number">Layers:</label>
+        <input type="number" id="number" name="number" required><br><br>
+        <button type="submit">Generate Graph</button>
+    </form>
+    <div id="image-container"></div>
+
+    <script>
+        document.getElementById('fetch-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const root = document.getElementById('root').value;
+            const number = document.getElementById('number').value;
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/generate_tree', {
+                    method: 'GET',
+                    headers: {
+                        'root': root,
+                        'layers': number
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const blob = await response.blob();
+                const imageUrl = URL.createObjectURL(blob);
+
+                document.getElementById('image-container').innerHTML = `<img src="${imageUrl}" alt="Tree Image">`;
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        });
+    </script>
+</body>
+</html>
+

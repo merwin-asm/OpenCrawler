@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>OpenCSearch</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f4f8;
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      background: #282c34;
+      color: #61dafb;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      margin: 0;
+      font-size: 3em;
+      font-weight: 700;
+      animation: fadeIn 1s ease-out;
+    }
+    .search-bar {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+      animation: slideIn 1s ease-out;
+    }
+    .search-bar input {
+      width: 80%;
+      padding: 10px;
+      border: 2px solid #61dafb;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      font-size: 1.2em;
+      transition: border-color 0.3s;
+    }
+    .search-bar button {
+      padding: 10px 20px;
+      border: 2px solid #61dafb;
+      border-radius: 0 5px 5px 0;
+      background: #61dafb;
+      color: #fff;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .search-bar button:hover {
+      background: #4fa3d4;
+      border-color: #4fa3d4;
+    }
+    .results {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 800px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-out;
+    }
+    .results ul {
+      list-style: none;
+      padding: 0;
+    }
+    .results li {
+      margin: 10px 0;
+    }
+    .results a {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s;
+    }
+    .results a:hover {
+      color: #0056b3;
+    }
+    .summary {
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #282c34;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OpenCSearch</h1>
+  </header>
+  <div class="search-bar">
+    <form id="search-form">
+      <input type="text" id="query" name="query" placeholder="Enter your search query">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div id="results" class="results"></div>
+
+  <script>
+    document.getElementById('search-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let query = document.getElementById('query').value;
+
+      fetch(`/search?query=${encodeURIComponent(query)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            document.getElementById('results').innerHTML = `<p>${data.error}</p>`;
+          } else {
+            let resultsHTML = `<div class="summary">${data.summary}</div><ul>`;
+            data.urls.forEach(url => {
+              resultsHTML += `<li><a href="${url}" target="_blank">${url}</a></li>`;
+            });
+            resultsHTML += `</ul>`;
+            document.getElementById('results').innerHTML = resultsHTML;
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('results').innerHTML = '<p>An error occurred</p>';
+        });
+    });
+  </script>
+</body>
+</html>
+
